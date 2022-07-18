@@ -1,0 +1,17 @@
+{
+  "name": "mythic-keys-bot",
+  "version": "1.0.0",
+  "description": "Discord bot for World of Warcraft keys tracking",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "node --require dotenv/config bot.js"
+  },
+  "author": "Adam Proctor <aproctor@gmail.com>",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "dotenv": "^8.2.0",
+    "ioredis": "^4.24.4"
+  }
+}
