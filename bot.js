@@ -1,6 +1,8 @@
 import Redis from 'ioredis'
 import Discord from 'discord.js'
 import 'dotenv/config'
+import * as http from 'http'
+
 
 const REDIS_HOST = process.env.REDIS_HOST
 const REDIS_PASS = process.env.REDIS_PASS
@@ -138,3 +140,13 @@ client.on('ready', () => {
   })
   console.log("Hello waiting for commands");
 })
+
+// Required for Azure hosting...
+var server = http.createServer(function (request, response) {
+  response.writeHead(200, { "Content-Type": "text\plain" });
+  if (request.method == "GET") {
+   response.end("received GET") 
+  }
+});
+
+server.listen(8080);
