@@ -1,3 +1,10 @@
+import Redis from 'ioredis'
+import 'dotenv/config'
+
+const REDIS_HOST = process.env.REDIS_HOST
+const REDIS_PASS = process.env.REDIS_PASS
+const REDIS_PORT = process.env.REDIS_PORT
+
 import fs from 'fs'
 
 const FS_OPENING = 0;
@@ -65,3 +72,17 @@ data.split(/\r?\n/).forEach(line =>  {
 
 console.log(AstralKeys);
 console.log(AstralKeys.length);
+
+
+
+let redis = new Redis({
+    host: REDIS_HOST,
+    port: REDIS_PORT,
+    password: REDIS_PASS,
+    tls: {}
+  });
+
+let key = `mythicpluskeys:keydata`
+redis.set(key, JSON.stringify(AstralKeys));
+console.log("Done");
+
