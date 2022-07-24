@@ -89,7 +89,7 @@ client.on('ready', () => {
     if (message.type === 'dm') return
 
     let channel_name = message.channel.name;
-    if(channel_name != 'bot-testing') return;
+    if(channel_name != 'bot-testing' && channel_name != "wow") return;
     console.log(message.content);
 
     /**/
